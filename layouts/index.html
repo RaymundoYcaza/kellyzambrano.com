@@ -1,0 +1,65 @@
+{{- define "content" -}}
+    {{- $params := .Scratch.Get "params" -}}
+    {{- $profile := .Site.Params.home.profile -}}
+    {{- $posts := .Site.Params.home.posts -}}
+
+    <div class="page home"{{ if ne $posts.enable false }} data-home="posts"{{ end }}>
+        {{- /* Profile */ -}}
+        {{- if ne $profile.enable false -}}
+            {{- partial "home/profile.html" . -}}
+        {{- end -}}
+
+        {{- /* Content */ -}}
+        {{- if .Content -}}
+            <div class="single">
+                <div class="content" id="content">
+                    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+                </div>
+            </div>
+        {{- end -}}
+
+        {{- /* Posts */ -}}
+        {{- if ne $posts.enable false | and .Site.RegularPages -}}
+            {{- /* Paginate */ -}}
+            {{- $pages := where .Site.RegularPages "Type" "posts" -}}
+            {{- if .Site.Params.page.hiddenFromHomePage -}}
+                {{- $pages = where $pages "Params.hiddenfromhomepage" false -}}
+            {{- else -}}
+                {{- $pages = where $pages "Params.hiddenfromhomepage" "!=" true -}}
+            {{- end -}}
+            {{- with $posts.paginate | default .Site.Params.paginate -}}
+                {{- $pages = $.Paginate $pages . -}}
+            {{- else -}}
+                {{- $pages = .Paginate $pages -}}
+            {{- end -}}
+            {{- range $pages.Pages -}}
+                {{- .Render "summary" -}}
+            {{- end -}}
+            {{- partial "paginator.html" . -}}
+        {{- end -}}
+    </div>
+    <div style="clear:both; min-height:8rem;"></div>
+    
+
+    <div class="ry-3col">
+        <div class="ry-col">
+            <i class="fa-solid fa-helmet-safety fa-2xl" style="color: #C33764; font-size:4rem; "></i>
+            <h2>Seguridad Laboral</h2>
+            <p style="min-height:4rem;">Descubre cómo mantener un entorno de trabajo seguro y proteger a tus empleados en nuestra
+                sección sobre seguridad laboral.</p>
+        </div>
+        <div class="ry-col">
+            <i class="fa-solid fa-book-open fa-2xl" style="color: #C33764; font-size:4rem; "></i>
+            <h2>Normativas de Seguridad</h2>
+            <p style="min-height:4rem;">Exploremos las regulaciones y estándares de seguridad que debes conocer para garantizar el
+                cumplimiento y la protección en tu empresa.</p>
+        </div>
+        <div class="ry-col">
+            <i class="fa-solid fa-head-side-virus fa-2xl" style="color: #C33764; font-size:4rem; "></i>
+            <h2>Riesgos Psicosociales</h2>
+            <p style="min-height:4rem;">Aprende sobre los riesgos psicológicos y sociales en el lugar de trabajo y cómo gestionarlos
+                para un ambiente más saludable.</p>
+        </div>
+    </div>
+{{- end -}}
+
