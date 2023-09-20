@@ -4,7 +4,7 @@ subtitle: "Creando espacios de trabajo seguros y saludables"
 categories: ["Cultura de Seguridad"]
 tags: ["Espacios de trabajo seguros"]
 date: 2023-09-19T22:58:48-05:00
-draft: true
+draft: false
 type: blog
 layout: blog
 ---
