@@ -11,7 +11,7 @@ layout: blog
 
 En este artículo, voy a introducirte en el apasionante mundo de la seguridad laboral para ayudarte a descubrir cómo este concepto puede mejorar el entorno laboral.
 
-Sígueme a través de la esencia de la seguridad laboral y acompáñame en esta explicación sobre su importancia para tu bienestar y éxito profesional.
+Sígueme a través de la esencia de la seguridad laboral y acompáñame en esta explicación sobre su importancia para tu bienestar y éxito profesional. 
 
 ## ¿Qué es la seguridad laboral?
 
