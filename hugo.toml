@@ -1,4 +1,4 @@
-baseURL = 'http://localhost/public/'
+baseURL = 'https://master--glittery-basbousa-240ce8.netlify.app/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 'LoveIt'
